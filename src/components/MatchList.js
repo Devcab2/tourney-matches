@@ -1,6 +1,24 @@
-import React from "react"; //optional
+import Match from "./Match";
 
-<section className="PlayerList MatchList">
+function MatchList(props) {
+
+  const matches = props.matchData.map((match) => {
+    return (
+      <Match
+        key={match.matchNumber}
+        players ={match.players}
+        winner = {match.winner}
+        scoreDifference={match.scoreDifference}
+      />
+    );
+  });
+  
+  return (
+    <section className="PlayerList MatchList">
       <h1>Match list</h1>
-      {/* Matches will be shown here */}
-</section>
+      {matches}
+    </section>
+  );
+}
+
+export default MatchList;
